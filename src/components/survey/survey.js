@@ -276,10 +276,10 @@ const Survey = () => {
 			</Formik> :
 			<div className="container">
 				<h1>Survey created!! Please share the below link to access the form</h1>
-				<h3><a href={domain+"/form/"+formID} target="_blank">{"http://localhost:3001/form/"+formID} </a></h3>
+				<h3><a href={domain+"/form/"+formID} target="_blank">{domain+"/form/"+formID} </a></h3>
 				<hr />
 				<h1>Please use the below link for viewing the realtime feedback!!</h1>
-				<h3><a href={domain+"/feedback/"+formID} target="_blank">{"http://localhost:3001/feedback/"+formID} </a></h3>
+				<h3><a href={domain+"/feedback/"+formID} target="_blank">{domain+"/feedback/"+formID} </a></h3>
 			</div>
   );
 };

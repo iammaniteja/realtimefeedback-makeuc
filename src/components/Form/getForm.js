@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Formik } from "formik";
 import axios from "axios";
+import Form from "./form";
 
 const validate = (values) => {
   let errors = {};
@@ -12,8 +13,11 @@ const validate = (values) => {
 };
 
 const GetForm = () => {
+	const [showForm, setShowForm] = useState(false);
+	const [formData, setFormData] = useState("");
 
   return (
+		!showForm ?
 			<Formik
 				enableReinitialize = {true}
 				initialValues = {{
@@ -29,6 +33,8 @@ const GetForm = () => {
 						axios.get(
 							"http://localhost:3000/question/"+formID
 						).then((res) => {
+							setShowForm(true);
+							setFormData(res.data[0]);
 							console.log(res);
 						})
 						.catch((e) => {
@@ -83,7 +89,9 @@ const GetForm = () => {
 						</div>
 					);
 				}}
-			</Formik>)
+			</Formik> :
+			<Form formdata = {formData}/>
+			)
 };
 
 export default GetForm;
