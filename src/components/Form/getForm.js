@@ -12,16 +12,15 @@ const validate = (values) => {
   return errors;
 };
 
-const GetForm = () => {
+const GetForm = (props) => {
 	const [showForm, setShowForm] = useState(false);
 	const [formData, setFormData] = useState("");
-
   return (
 		!showForm ?
 			<Formik
 				enableReinitialize = {true}
 				initialValues = {{
-					formID: "",
+					formID: !!props.match.params.id ? props.match.params.id : "",
 				}}
 				validate={validate}
 				onSubmit={
@@ -78,8 +77,6 @@ const GetForm = () => {
 
 								<button
 									type="submit"
-									className={!(dirty && isValid) ? "disabled-btn" : ""}
-									disabled={!(dirty && isValid)}
 								>
 									Get Form
 								</button>

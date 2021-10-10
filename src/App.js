@@ -32,6 +32,7 @@ function App() {
       <Router>
       <Switch>
         <Route path="/admin" component={Dashboard} />
+        <Route path="/guest/:id" component={GetForm} />
         <Route path="/guest" component={GetForm} />
         <Route path="/survey" component={Survey} />
         <Route path="/" component={Landing} />
