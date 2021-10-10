@@ -1,8 +1,9 @@
+import Survey from "./components/survey/survey";
 
 function App() {
   return (
     <div>
-      <h1>Initial</h1>
+      <Survey />
     </div>
   );
 }

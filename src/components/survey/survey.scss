@@ -1,0 +1,108 @@
+$primary-color: #1d3557;
+$error-color: #e63946;
+$bg-color: #f1faee;
+$text-color: #293241;
+$color-white: #fff;
+
+$border-radius: 4px;
+
+.container {
+  margin-top: 5rem;
+  padding: 3rem;
+  border-radius: $border-radius;
+
+  h1 {
+    font-size: 2rem;
+    color: $text-color;
+    margin-bottom: 2rem;
+  }
+
+  label,
+  input,
+  select {
+    color: $text-color;
+  }
+
+  label {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+  }
+
+  input, select {
+    border: 2px solid rgba($primary-color, 0.8);
+    border-radius: $border-radius;
+    padding: 0.5rem 1rem;
+    padding-left: 1rem;
+    font-size: 1rem;
+  }
+
+  .form-row, .form-row .heading {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+    #surveyDescription {
+        width: 80%;
+    }
+  }
+
+  .form-row .heading {
+    align-items: center;
+  }
+
+  button {
+    display: block;
+    margin: auto;
+    color: $color-white;
+    width: 40%;
+    font-size: 1.4rem;
+    background: $primary-color;
+    border-radius: $border-radius;
+    border: none;
+    cursor: pointer;
+    padding: 0.4rem 1.2rem;
+    margin-top: 0.5rem;
+
+    &:hover {
+      background: rgba($primary-color, 0.8);
+    }
+  }
+
+  .input-error {
+    border-color: $error-color;
+  }
+
+  .error {
+    color: $error-color;
+    font-size: 1rem;
+    margin-top: 0.3rem;
+  }
+    .option-container {
+        display: flex;
+        flex-direction: row;
+        
+        .option {
+            color: $color-white;
+            border: none;
+            padding: 10px;
+            outline: none;
+            font-size: 14px;
+            background: $primary-color;
+            border-radius: 12px;
+            width: 10%;
+            margin: 10px 10px;
+          }
+    }
+
+  #add-button{
+    width: 10%;
+    @media screen and (max-width: 766px) {
+        width: 25%;
+        padding: 0.4rem 0.2rem;;
+    }
+  }
+
+  .disabled-btn {
+    cursor: not-allowed;
+    background: rgba($primary-color, 0.8);
+  }
+}
