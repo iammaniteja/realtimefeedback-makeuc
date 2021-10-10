@@ -24,7 +24,7 @@ export default class Dashboard extends Component {
         return(
             <div className="container-fluid">
                 <div className="actions mt-4">
-                <button className="btn btn-primary"><a href="/survey" style={{color:"white", textDecoration:"none"}}>Create</a></button>
+                <a href="/survey" style={{color:"white", textDecoration:"none"}}><button className="btn btn-primary">Create</button></a>
                 <hr></hr>
                 </div>
                 <div className="history">
