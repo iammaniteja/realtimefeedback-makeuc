@@ -128,7 +128,7 @@ const Survey = () => {
 						setValues
 					} = formik;
 					return (
-						<div className="container">
+						<div className="customcontainer">
 							<form onSubmit={handleSubmit}>
 							<div className="form-row">
 								<div className = "heading">
@@ -274,7 +274,7 @@ const Survey = () => {
 					);
 				}}
 			</Formik> :
-			<div className="container">
+			<div className="customcontainer">
 				<h1>Survey created!! Please share the below link to access the form</h1>
 				<h3><a href={domain+"/form/"+formID} target="_blank">{domain+"/form/"+formID} </a></h3>
 				<hr />

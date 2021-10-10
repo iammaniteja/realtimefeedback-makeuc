@@ -76,7 +76,7 @@ const Form = (props) => {
 						setValues
 					} = formik;
 					return (
-						<div className="container">
+						<div className="customcontainer">
 							<form onSubmit={handleSubmit}>
 							<div className="form-row">
 								<div className = "heading">
@@ -129,7 +129,7 @@ const Form = (props) => {
 					);
 				}}
 			</Formik> :
-			<div class = "container">
+			<div class = "customcontainer">
 				<h1>Thanks for submitting!! Please click on link below to view the Realtime Feedback!!!</h1>
 			</div>
 		)

@@ -56,7 +56,7 @@ const GetForm = () => {
 						setValues
 					} = formik;
 					return (
-						<div className="container">
+						<div className="customcontainer">
 							<form onSubmit={handleSubmit}>
 							<div className="form-row">
 								<div className = "heading">
