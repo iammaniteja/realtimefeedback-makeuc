@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Formik } from "formik";
+import axios from "axios";
 
 import "./survey.scss";
 
@@ -23,15 +24,71 @@ const validate = (values) => {
     errors.questionType = "Question Type is required";
   }
 
-	if (!values.responseSize) {
+	if (values.questionType === "textResponse" && !values.responseSize) {
     errors.responseSize = "Response Size is required";
   }
+
+	if(values.questionType === "optionedResponse" && values.options.length < 2){
+		errors.options = "atleast 2 options are required";
+	}
 
   return errors;
 };
 
 const submitForm = (values) => {
-  console.log(values);
+	const {
+		surveyTitle,
+		surveyDescription,
+		questionType,
+		question,
+		options,
+		responseSize
+	} = values;
+
+	let question_data = {
+		"question": question
+	}
+
+	if(questionType === "optionedResponse") {
+		question_data = {
+			...question_data,
+			"type": "option", 
+			"options": options
+		}
+	}
+	else {
+		question_data = {
+			...question_data,
+			"type": "text", 
+		}
+	}
+
+	const axiosConfig = {
+		'content-type': 'application/json'
+	}
+
+	const res = {
+		"name": surveyTitle,
+		"description": surveyDescription,
+		"questions": [
+			{
+				...question_data
+			}
+		]
+	};
+
+	axios.post(
+		"http://localhost:3000/survey",
+		res,
+		axiosConfig
+	).then((res) => {
+		alert("success")
+	})
+	.catch((e) => {
+		alert(e)
+	});
+
+  console.log(res);
 };
 
 const Survey = () => {
@@ -173,6 +230,9 @@ const Survey = () => {
 										>
 										+
 										</button>
+										{errors.options && touched.options && (
+													<span className="error">{errors.options}</span>
+												)}
 										</> :
 										values.questionType === "textResponse" ?
 											<>
